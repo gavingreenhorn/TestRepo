@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SegmentedControlReproduce.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SegmentedControlReproduce"
+    xmlns:views="clr-namespace:SegmentedControlReproduce.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Title="SegmentedControlReproduce">
+    <FlyoutItem Title="Home">
+        <ShellContent
+        Title="Main Page"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Thai" Route="thai">
+        <ShellSection>
+            <ShellContent
+                Title="Vowels"
+                ContentTemplate="{DataTemplate views:VowelsView}"
+                Route="Vowels"/>
+            <ShellContent
+                Title="Another page"
+                ContentTemplate="{DataTemplate views:BlankPage}"
+                Route="Another"/>
+        </ShellSection>
+    </FlyoutItem>
+</Shell>

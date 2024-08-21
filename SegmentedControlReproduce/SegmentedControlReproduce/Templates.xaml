@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:s="http://plugin.segmentedControl.maui">
+    <ControlTemplate x:Key="AllVowels">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+            <s:SegmentedControl
+                x:Name="SegControl1"
+                ItemsSource="{Binding VowelVisualizationOptions}"
+                SelectedItem="{Binding SelectedVowelVisualizationOption, Mode=TwoWay}"
+                TextPropertyName="Thai"
+                TintColor="Indigo"
+                FontSize="22"
+                Margin="2,0">
+            </s:SegmentedControl>
+            <s:SegmentedControl
+                Grid.Row="1"
+                x:Name="SegControl2"
+                ItemsSource="{Binding SoundTypeOptions}"
+                SelectedItem="{Binding SelectedSoundTypeOption, Mode=TwoWay}"
+                TextPropertyName="Thai"
+                TintColor="ForestGreen"
+                FontSize="22"
+                Margin="2,0">
+            </s:SegmentedControl>
+            <Label Grid.Row="2" Margin="5" Text="{Binding Source={x:Reference SegControl1}, Path=SelectedItem.Latin, Mode=OneWay, StringFormat='{}Selected segment: {0}'}" TextColor="Indigo"/>
+            <Label Grid.Row="3" Margin="5" Text="{Binding Source={x:Reference SegControl2}, Path=SelectedItem.Latin, Mode=OneWay, StringFormat='{}Selected segment: {0}'}" TextColor="ForestGreen"/>
+            <Picker
+                Grid.Row="4"
+                Title="Picker1"
+                ItemsSource="{Binding VowelVisualizationOptions}"
+                SelectedItem="{Binding SelectedVowelVisualizationOption, Mode=TwoWay}"
+                ItemDisplayBinding="{Binding Thai}"/>
+            <Picker
+                Grid.Row="5"
+                Title="Picker2"
+                ItemsSource="{Binding SoundTypeOptions}"
+                SelectedItem="{Binding SelectedSoundTypeOption, Mode=TwoWay}"
+                ItemDisplayBinding="{Binding Thai}"/>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="GraphemesBySound">
+        <Grid RowDefinitions="Auto,680">
+            <Label Text="Nothing to see here"/>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>
